@@ -4,4 +4,5 @@ from firstapp import views
 
 urlpatterns = [
     path('', views.index),
+    path('question/', views.question_page, name='question_page'),
 ]

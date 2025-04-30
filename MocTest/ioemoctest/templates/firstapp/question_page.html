@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock Test</title>
+    <link rel="stylesheet" href="{% static  'css/question_page.css' %}">
+   
+</head>
+<body>
+    <h2 class="timer">Time Left: <span id="timer">60m 0s</span></h2>
+    <script>
+        let totalSeconds = 60 * 60; // 1 hour
+
+function updateTimer() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    document.getElementById('timer').textContent = `${minutes}m ${seconds}s`;
+
+    if (totalSeconds <= 0) {
+        clearInterval(timerInterval);
+        alert("Time is up! Submitting the form.");
+        document.getElementById('quizForm').submit();  // Make sure your form has id="quizForm"
+    }
+
+    totalSeconds--;
+}
+
+const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+
+    {% if error %}
+  <p style="color: red;">{{ error }}</p>
+{% else %}
+  <form method="post">
+    {% csrf_token %}
+    <h2>{{ question.text }}</h2>
+    {% for option in options %}
+      <div>
+        <input type="radio" name="selected_option" value="{{ option.id }}" id="option{{ forloop.counter }}">
+        <label for="option{{ forloop.counter }}">{{ option.text }}</label>
+      </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+{% endif %}
+      
+    
+</body>
+</html>
