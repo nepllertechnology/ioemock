@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - BE Entrance</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+</head>
+<div class="container">
+    <h2>Create an Account </h2>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Your form fields -->
+        <!-- <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Username" required> <br><br> -->
+
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fullname" placeholder="Fullname" required> <br>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" required> <br>
+
+        <label for="username">Password</label>
+        <input type="password" name="password" placeholder="Password" required> <br>
+
+        <label for="username">Confirm Password</label>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required> <br>
+
+         <!-- Terms and Policy Checkbox -->
+        <label>
+            <input type="checkbox" name="terms" required>
+            I agree to the <a href="/terms">terms & privacy policy</a> 
+        </label> <br><br>
+        <input type="submit" value="Register"> <br><br>
+
+        <label for="account">Have an account? <a href="/login"> Login</a></label>
+    </form>
+</div>
+
+<div class="button-container">
+    <a href="/" class="home-button"><i class="fas fa-home"></i> Back to Home</a>
+</div>
+
+    
+
+</body>
+</html>

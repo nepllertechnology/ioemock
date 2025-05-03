@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static  'css/index.css' %}">
+    <title>Home - BE Entrance</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
 </head>
-<body>
-    <h1>Boiler Plate</h1>
+<body class="body-flex">
+
+    <!-- Header Section -->
+    <header class="header-flex">
+        <div class="logo">
+            <h2>ioemock.</h2>
+        </div>
+        <nav class="nav-links">
+            <a href="">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="/register/" class="btn">Register</a>
+            <a href="/login/" class="btn">Login</a>
+        </nav>
+    </header>
+
+    <main class="main-flex">
+        <div class="main-left">
+            <h1>Welcome to BE Entrance!</h1>
+            <h2>Your gateway to engineering begins here </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="main-links">
+                <a href="/register/"class="btn">GET STARTED</a> 
+
+            </div>
+        </div>
+    
+        <div class="main-right">
+            <img src="{% static 'css/img1.webp' %}" alt="Entrance Illustration">
+        </div>
+    </main>
+    
 </body>
 </html>

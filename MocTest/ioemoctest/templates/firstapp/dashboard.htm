@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - BE Entrance</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body style="text-align: center; margin-top: 100px;">
+    <h1>Welcome to your Dashboard!</h1>
+    <p>You are logged in as {{ request.user.username }}</p>
+
+    <br>
+    <a href="/">Back to Home</a>
+    <a href="/logout/">Logout</a> 
+</body>
+</html>

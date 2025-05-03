@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - BE Entrance</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login</h2>
+
+        <!-- Error Message -->
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="fullname">Fullname</label>
+            <input type="text" name="fullname" placeholder="Enter Fullname (used as username)" required><br>
+
+            <label for="password">Enter Password</label>
+            <input type="password" name="password" placeholder="Password" required><br><br>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <br>
+        <a href="{% url 'password_reset' %}">Forgot Password?</a>
+    </div>
+
+    <div class="button-container">
+        <a href="{% url 'home' %}" class="home-button"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+
+</body>
+</html>

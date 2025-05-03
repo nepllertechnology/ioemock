@@ -1,0 +1,133 @@
+/* Make the whole body use flex in column */
+.body-flex {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+h1 {
+    font-size: 40px;
+    color: blue;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+p{
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.logo h2 {
+    margin: 0;
+    font-size: 32px; /* Increase this value as needed */
+    font-weight: bold; /* Optional: makes it bolder */
+}
+
+/* Styles for buttons */
+.main-links a.btn {
+    background-color: #1B4962; /* Bootstrap primary blue */
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+/* Hover effect for buttons */
+.main-links a.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Header Flex Settings */
+.header-flex {
+    background-color: white;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    margin: 0;
+}
+
+/* Navigation Links in Header */
+.nav-links a {
+    margin-left: 40px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Styles for buttons */
+.nav-links a.btn {
+    background-color: #1B4962; /* Bootstrap primary blue */
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.nav-links a.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Flex container for main content */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+/* Text content styling */
+.text-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Image content styling */
+.image-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Image styling */
+.main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.main-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    padding: 60px;
+    gap: 10px;
+}
+
+.main-left {
+    flex: 1;
+}
+
+.main-right {
+    flex: 1;
+}
+
+.main-right img {
+    max-width: 100%;
+    height: auto;
+}
