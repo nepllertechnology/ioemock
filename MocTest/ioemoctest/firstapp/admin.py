@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Question, Option, UserAnswer, UserScore
+from .models import Question, Option, UserAnswer, Subject, MockTestAttempt
 
 # Register your models here.
 
-admin.site.register(UserAnswer)
-admin.site.register(UserScore)
+
+
 
 class OptionInline(admin.TabularInline):
     model = Option
@@ -12,5 +12,11 @@ class OptionInline(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [OptionInline]
+    list_display = ('text', 'subject')
+    list_filter = ('subject',)
+    search_fields = ('text',)
 
+admin.site.register(Subject)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(UserAnswer)
+admin.site.register(MockTestAttempt)
