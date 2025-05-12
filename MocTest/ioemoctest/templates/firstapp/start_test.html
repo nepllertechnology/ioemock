@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock Test</title>
+    <link rel="stylesheet" href="{% static  'css/question_page.css' %}">
+   
+</head>
+<body>
+    <h2 class="timer">Time Left: <span id="timer">60m 0s</span></h2>
+    <script>
+        let totalSeconds = 60 * 60; // 1 hour
+
+function updateTimer() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    document.getElementById('timer').textContent = `${minutes}m ${seconds}s`;
+
+    if (totalSeconds <= 0) {
+        clearInterval(timerInterval);
+        alert("Time is up! Submitting the form.");
+        document.getElementById('quizForm').submit();  // Make sure your form has id="quizForm"
+    }
+
+    totalSeconds--;
+}
+
+const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+    <form action="{% url 'submit_test' %}" method="post">
+      {% csrf_token %}
+      
+      <input type="hidden" name="subject_id" value="Physics">
+      
+      {% for question in questions %}
+      
+          <div style="margin-bottom: 20px;">
+              <p><strong>Q. {{ forloop.counter }}. {{ question.text }}</strong></p>
+              <input type="hidden" name="question_ids[]" value="{{ question.id }}">
+
+              {% if question.options.all %}
+                  {% for option in question.options.all %}
+                      <label>
+                          
+                          <input type="radio" name="question_{{ question.id }}" value="{{ option.id }}">
+                          
+
+                          {{ option.text }}
+                      </label><br>
+                  {% endfor %}
+              {% else %}
+                  <p>No options available for this question.</p>
+              {% endif %}
+          </div>
+      {% endfor %}
+      
+      
+      <div>
+          <input type="submit" value="Submit">
+      </div>
+  </form>
+      
+    
+</body>
+</html>
